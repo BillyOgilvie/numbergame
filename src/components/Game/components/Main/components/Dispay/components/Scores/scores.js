@@ -1,8 +1,8 @@
 import './scores.css';
 
-const Scores = () => {
-  const score = 20;
-  const highScore = 0;
+const Scores = (props) => {
+  const { score, highScore } = props;
+
   return (
     <div>
       <p className="label-score">💯 Score: {score}</p>

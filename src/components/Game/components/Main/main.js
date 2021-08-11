@@ -4,7 +4,7 @@ import Scores from './components/Dispay/components/Scores/scores';
 import CheckGuess from './components/CheckGuess/checkGuess';
 
 const Main = (props) => {
-  const { onCheckClick, liftGuess, message } = props;
+  const { onCheckClick, liftGuess, message, score, highScore } = props;
 
   return (
     <main>
@@ -13,7 +13,7 @@ const Main = (props) => {
       </section>
       <section className="right">
         <Message message={message} />
-        <Scores />
+        <Scores score={score} highScore={highScore} />
       </section>
     </main>
   );
