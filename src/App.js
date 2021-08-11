@@ -1,12 +1,10 @@
 import './index.css';
-import Header from './components/Header';
-import Main from './components/Main';
+import Game from './components/Game/game';
 
 const App = () => {
   return (
     <div>
-      <Header />
-      <Main />
+      <Game />
     </div>
   );
 };
