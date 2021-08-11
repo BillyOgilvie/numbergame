@@ -12,25 +12,37 @@ const Game = () => {
 
   const [message, setMessage] = useState('Start guessing...');
 
+  const [score, setScore] = useState(20);
+  const [highScore, setHighScore] = useState(0);
+
   const onAgainClickHandler = () => {
     setNumber(generateNumber);
+    setMessage('Start guessing...');
+    setScore(20);
   };
 
   const onCheckClickHandler = () => {
-    if (userGuess > 20 || userGuess < 1) {
-      setMessage('⛔ Pick a number between 1 and 20 ⛔');
+    if (score > 1) {
+      if (userGuess > 20 || userGuess < 1) {
+        setMessage('⛔ Pick a number between 1 and 20 ⛔');
+      } else {
+        if (userGuess !== currentNumber) {
+          setScore(score - 1);
+          setMessage(
+            userGuess > currentNumber
+              ? '📈 Too high. Go lower! 👇'
+              : '📉 Too low. Go higher! 👆'
+          );
+        }
+
+        if (userGuess === currentNumber) {
+          setMessage('🎉 Correct! 👍');
+          if (score > highScore) setHighScore(score);
+        }
+      }
     } else {
-      if (userGuess < currentNumber) {
-        setMessage('📉 Too low. Go higher! 👆');
-      }
-
-      if (userGuess > currentNumber) {
-        setMessage('📈 Too high. Go lower! 👇');
-      }
-
-      if (userGuess === currentNumber) {
-        setMessage('🎉 Correct! 👍');
-      }
+      setScore(0);
+      setMessage('💣 Game Over! 💀');
     }
   };
 
@@ -48,6 +60,8 @@ const Game = () => {
         onCheckClick={onCheckClickHandler}
         liftGuess={liftGuess}
         message={message}
+        score={score}
+        highScore={highScore}
       />
     </div>
   );
