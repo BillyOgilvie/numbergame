@@ -1,7 +1,9 @@
 import './message.css';
 
-const Message = () => {
-  return <p className="message">Start guessing...</p>;
+const Message = (props) => {
+  const { message } = props;
+
+  return <p className="message">{message}</p>;
 };
 
 export default Message;
