@@ -5,14 +5,14 @@ import SubTitle from './Components/Subtitle/subtitle';
 import SecretNumber from './Components/Number/number';
 
 const Header = (props) => {
-  const { currentNumber, onAgainClick } = props;
+  const { currentNumber, onAgainClick, showNumber } = props;
 
   return (
     <header>
       <AgainButton onAgainClick={onAgainClick} />
       <Title />
       <SubTitle />
-      <SecretNumber currentNumber={currentNumber} />
+      <SecretNumber currentNumber={currentNumber} showNumber={showNumber} />
     </header>
   );
 };

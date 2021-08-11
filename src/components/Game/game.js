@@ -10,6 +10,9 @@ const Game = () => {
   const [currentNumber, setNumber] = useState(generateNumber);
   let userGuess = 0;
 
+  const [showNumberBool, setShowNumberBool] = useState(false);
+  console.log(currentNumber);
+
   const [message, setMessage] = useState('Start guessing...');
 
   const [score, setScore] = useState(20);
@@ -19,10 +22,12 @@ const Game = () => {
     setNumber(generateNumber);
     setMessage('Start guessing...');
     setScore(20);
+    setShowNumberBool(false);
+    console.log(currentNumber);
   };
 
   const onCheckClickHandler = () => {
-    if (score > 1) {
+    if (score > 1 && !showNumberBool) {
       if (userGuess > 20 || userGuess < 1) {
         setMessage('⛔ Pick a number between 1 and 20 ⛔');
       } else {
@@ -38,9 +43,10 @@ const Game = () => {
         if (userGuess === currentNumber) {
           setMessage('🎉 Correct! 👍');
           if (score > highScore) setHighScore(score);
+          setShowNumberBool(true);
         }
       }
-    } else {
+    } else if (!showNumberBool) {
       setScore(0);
       setMessage('💣 Game Over! 💀');
     }
@@ -55,6 +61,7 @@ const Game = () => {
       <Header
         currentNumber={currentNumber}
         onAgainClick={onAgainClickHandler}
+        showNumber={showNumberBool}
       />
       <Main
         onCheckClick={onCheckClickHandler}
