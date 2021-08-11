@@ -18,11 +18,14 @@ const Game = () => {
   const [score, setScore] = useState(20);
   const [highScore, setHighScore] = useState(0);
 
+  const [bodyClass, setBodyClass] = useState('body');
+
   const onAgainClickHandler = () => {
     setNumber(generateNumber);
     setMessage('Start guessing...');
     setScore(20);
     setShowNumberBool(false);
+    setBodyClass('body');
     console.log(currentNumber);
   };
 
@@ -44,6 +47,9 @@ const Game = () => {
           setMessage('🎉 Correct! 👍');
           if (score > highScore) setHighScore(score);
           setShowNumberBool(true);
+          setBodyClass((prev) => {
+            return `${prev} win`;
+          });
         }
       }
     } else if (!showNumberBool) {
@@ -57,7 +63,7 @@ const Game = () => {
   };
 
   return (
-    <div>
+    <div className={bodyClass}>
       <Header
         currentNumber={currentNumber}
         onAgainClick={onAgainClickHandler}
