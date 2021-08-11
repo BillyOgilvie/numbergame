@@ -22,6 +22,10 @@ html {
   background-color: #60b347;
 }
 
+.lose {
+  background-color: #b34747;
+}
+
 .left {
   width: 70rem;
   display: flex;

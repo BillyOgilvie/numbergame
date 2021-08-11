@@ -57,6 +57,11 @@ const Game = () => {
     } else if (!showNumberBool) {
       setScore(0);
       setMessage('💣 Game Over! 💀');
+      setShowNumberBool(true);
+      setNumber('☠');
+      setBodyClass((prev) => {
+        return `${prev} lose`;
+      });
     }
   };
 
