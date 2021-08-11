@@ -5,15 +5,15 @@ import Score from './components/Dispay/components/Score/score';
 import CheckGuess from './components/CheckGuess/checkGuess';
 
 const Main = (props) => {
-  const { onCheckClick } = props;
+  const { onCheckClick, liftGuess, message } = props;
 
   return (
     <main>
       <section className="left">
-        <CheckGuess onCheckClick={onCheckClick} />
+        <CheckGuess onCheckClick={onCheckClick} liftGuess={liftGuess} />
       </section>
       <section className="right">
-        <Message />
+        <Message message={message} />
         <Score />
         <HighScore />
       </section>
