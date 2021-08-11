@@ -12,8 +12,12 @@ const Game = () => {
 
   const [message, setMessage] = useState('Start guessing...');
 
+  const [score, setScore] = useState(20);
+
   const onAgainClickHandler = () => {
     setNumber(generateNumber);
+    setMessage('Start guessing...');
+    setScore(20);
   };
 
   const onCheckClickHandler = () => {

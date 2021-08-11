@@ -1,7 +1,6 @@
 import './main.css';
 import Message from './components/Dispay/components/Message/message';
-import HighScore from './components/Dispay/components/HighScore/highscore';
-import Score from './components/Dispay/components/Score/score';
+import Scores from './components/Dispay/components/Scores/scores';
 import CheckGuess from './components/CheckGuess/checkGuess';
 
 const Main = (props) => {
@@ -14,8 +13,7 @@ const Main = (props) => {
       </section>
       <section className="right">
         <Message message={message} />
-        <Score />
-        <HighScore />
+        <Scores />
       </section>
     </main>
   );
