@@ -10,6 +10,8 @@ const Game = () => {
   const [currentNumber, setNumber] = useState(generateNumber);
   let userGuess = 0;
 
+  const [guess, setGuess] = useState('');
+
   const [showNumberBool, setShowNumberBool] = useState(false);
   console.log(currentNumber);
 
@@ -26,7 +28,7 @@ const Game = () => {
     setScore(20);
     setShowNumberBool(false);
     setBodyClass('body');
-    console.log(currentNumber);
+    setGuess('');
   };
 
   const onCheckClickHandler = () => {
@@ -75,6 +77,8 @@ const Game = () => {
         message={message}
         score={score}
         highScore={highScore}
+        guess={guess}
+        setGuess={setGuess}
       />
     </div>
   );

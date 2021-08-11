@@ -3,9 +3,7 @@ import React, { useState } from 'react';
 import Button from '../../../UI/Button/button';
 
 const CheckGuess = (props) => {
-  const { onCheckClick, liftGuess } = props;
-
-  const [guess, setGuess] = useState('');
+  const { onCheckClick, liftGuess, guess, setGuess } = props;
 
   const captureGuess = (event) => {
     setGuess(event.target.value);

@@ -23,13 +23,13 @@ html {
 }
 
 .left {
-  width: 52rem;
+  width: 70rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .right {
-  width: 52rem;
+  width: 70rem;
   font-size: 2rem;
 }
